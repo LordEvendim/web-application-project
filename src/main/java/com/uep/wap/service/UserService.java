@@ -7,17 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UsersService {
+public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public void addStudent(UserDTO userDTO) {
+    public void addUser(UserDTO userDTO) {
         User user = new User(userDTO.getUsername(), userDTO.getEmail(), userDTO.getRole());
         userRepository.save(user);
-        System.out.println("User added!");
+
+        System.out.println("User added");
     }
 
-    public Iterable<User> getAllStudents() {
+    public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
 }

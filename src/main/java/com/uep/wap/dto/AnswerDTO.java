@@ -1,12 +1,9 @@
 package com.uep.wap.dto;
 
-import com.uep.wap.model.Category;
-import com.uep.wap.model.Tag;
+import com.uep.wap.model.Question;
 import com.uep.wap.model.User;
 
-import java.util.List;
-
-public class QuestionDTO {
+public class AnswerDTO {
 
     private String content;
 
@@ -20,10 +17,7 @@ public class QuestionDTO {
     private User creator;
 
 
-    private Category category;
-
-
-    private List<Tag> tags;
+    private Question parentQuestion;
 
     public String getContent() {
         return content;
@@ -57,19 +51,11 @@ public class QuestionDTO {
         this.creator = creator;
     }
 
-    public Category getCategory() {
-        return category;
+    public Question getParentQuestion() {
+        return parentQuestion;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public List<Tag> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags = tags;
+    public void setParentQuestion(Question parentQuestion) {
+        this.parentQuestion = parentQuestion;
     }
 }

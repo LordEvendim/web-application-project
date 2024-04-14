@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "questions")
-public class Question {
+@Table(name = "answers")
+public class Answer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -23,26 +23,19 @@ public class Question {
     @JoinColumn(name = "creator_id")
     private User creator;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "parent_question_id")
+    private Question parentQuestion;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "question_tags",
-            joinColumns = @JoinColumn(name = "question_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"))
-    private List<Tag> tags;
-
-    public Question() {
+    public Answer() {
     }
 
-    public Question(String content, User creator, long createdAt, long lastEdited, Category category, List<Tag> tags) {
+    public Answer(String content, User creator, long createdAt, long lastEdited, Question parentQuestion) {
         this.content = content;
         this.creator = creator;
         this.createdAt = createdAt;
         this.lastEdited = lastEdited;
-        this.category = category;
-        this.tags = tags;
+        this.parentQuestion = parentQuestion;
     }
 }
 

@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tags")
-public class Tag {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -14,16 +14,14 @@ public class Tag {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "tags")
+    @OneToMany(mappedBy = "category")
     private List<Question> questions;
 
-    public Tag() {
+    public Category() {
     }
 
-    public Tag(String name, List<Question> questions) {
+    public Category(String name, List<Question> questions) {
         this.name = name;
         this.questions = questions;
     }
 }
-
-

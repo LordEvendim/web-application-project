@@ -1,8 +1,6 @@
 package com.uep.wap.repository;
 
 import com.uep.wap.model.Answer;
-import com.uep.wap.model.Category;
-import com.uep.wap.model.Question;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;

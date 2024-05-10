@@ -1,10 +1,9 @@
 package com.uep.wap.service;
 
 import com.uep.wap.dto.IUserStatisticsDTO;
-import com.uep.wap.dto.UserStatisticsDTO;
+import com.uep.wap.dto.UserDTO;
 import com.uep.wap.model.User;
 import com.uep.wap.repository.UserRepository;
-import com.uep.wap.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,12 +22,13 @@ public class UserService {
     }
 
     public List<IUserStatisticsDTO> getByMostUpvotes() {
-        List<IUserStatisticsDTO> usersStatistics = userRepository.findTopUsersWithMostUpvotes();
+        List<IUserStatisticsDTO> usersStatistics = userRepository.findUsersWithMostUpvotes();
 
         return usersStatistics;
     }
+
     public List<IUserStatisticsDTO> getByMostAnswers() {
-        List<IUserStatisticsDTO> usersStatistics = userRepository.findTopUsersWithMostAnswers();
+        List<IUserStatisticsDTO> usersStatistics = userRepository.findUsersWithMostAnswers();
 
         return usersStatistics;
     }

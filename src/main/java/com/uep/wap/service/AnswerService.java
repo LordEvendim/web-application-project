@@ -1,14 +1,10 @@
 package com.uep.wap.service;
 
-import com.uep.wap.dto.AnswerDTO;
 import com.uep.wap.dto.NewAnswerDTO;
-import com.uep.wap.dto.TagDTO;
 import com.uep.wap.model.Answer;
-import com.uep.wap.model.Category;
 import com.uep.wap.model.Question;
 import com.uep.wap.model.User;
 import com.uep.wap.repository.AnswerRepository;
-import com.uep.wap.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

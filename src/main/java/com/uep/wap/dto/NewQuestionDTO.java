@@ -1,8 +1,6 @@
 package com.uep.wap.dto;
 
-import com.uep.wap.model.Category;
 import com.uep.wap.model.Tag;
-import com.uep.wap.model.User;
 
 import java.util.List;
 

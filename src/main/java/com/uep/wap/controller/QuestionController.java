@@ -1,8 +1,6 @@
 package com.uep.wap.controller;
 
 import com.uep.wap.dto.NewQuestionDTO;
-import com.uep.wap.dto.QuestionDTO;
-import com.uep.wap.dto.UserDTO;
 import com.uep.wap.model.Question;
 import com.uep.wap.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
@@ -36,7 +34,7 @@ public class QuestionController {
 
     @GetMapping(path = "/category/{categoryId}")
     public Iterable<Question> getCategoryQuestions(@PathVariable int categoryId) {
-        return questionService.getCategoryQuestions(categoryId);
+        return questionService.getQuestionsFromCategory(categoryId);
     }
 
     @GetMapping(path = "/latest")

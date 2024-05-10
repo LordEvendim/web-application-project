@@ -20,6 +20,13 @@ public class Category {
     @OneToMany(mappedBy = "category")
     private List<Question> questions;
 
+    public Category() {
+    }
+
+    public Category(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
@@ -42,12 +49,5 @@ public class Category {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
-    }
-
-    public Category() {
-    }
-
-    public Category(int id) {
-        this.id = id;
     }
 }

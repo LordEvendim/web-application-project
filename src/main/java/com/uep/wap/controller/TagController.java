@@ -1,10 +1,7 @@
 package com.uep.wap.controller;
 
-import com.uep.wap.dto.QuestionDTO;
 import com.uep.wap.dto.TagDTO;
-import com.uep.wap.model.Question;
 import com.uep.wap.model.Tag;
-import com.uep.wap.service.QuestionService;
 import com.uep.wap.service.TagService;
 import org.springframework.web.bind.annotation.*;
 

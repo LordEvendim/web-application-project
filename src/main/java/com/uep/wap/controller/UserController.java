@@ -2,7 +2,6 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.IUserStatisticsDTO;
 import com.uep.wap.dto.UserDTO;
-import com.uep.wap.dto.UserStatisticsDTO;
 import com.uep.wap.model.User;
 import com.uep.wap.service.UserService;
 import org.springframework.web.bind.annotation.*;

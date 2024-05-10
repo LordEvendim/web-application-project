@@ -17,6 +17,14 @@ public class Tag {
     @ManyToMany(mappedBy = "tags")
     private List<Question> questions;
 
+    public Tag() {
+    }
+
+    public Tag(String name, List<Question> questions) {
+        this.name = name;
+        this.questions = questions;
+    }
+
     public int getId() {
         return id;
     }
@@ -38,14 +46,6 @@ public class Tag {
     }
 
     public void setQuestions(List<Question> questions) {
-        this.questions = questions;
-    }
-
-    public Tag() {
-    }
-
-    public Tag(String name, List<Question> questions) {
-        this.name = name;
         this.questions = questions;
     }
 }

@@ -1,8 +1,5 @@
 package com.uep.wap.dto;
 
-import com.uep.wap.model.Question;
-import com.uep.wap.model.User;
-
 public class NewAnswerDTO {
 
     private String content;

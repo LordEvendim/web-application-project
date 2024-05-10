@@ -1,15 +1,10 @@
 package com.uep.wap.service;
 
-import com.uep.wap.dto.CategoryDTO;
 import com.uep.wap.dto.NewQuestionDTO;
-import com.uep.wap.dto.QuestionDTO;
-import com.uep.wap.model.Answer;
 import com.uep.wap.model.Category;
 import com.uep.wap.model.Question;
 import com.uep.wap.model.User;
-import com.uep.wap.repository.CategoryRepository;
 import com.uep.wap.repository.QuestionRepository;
-import com.uep.wap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +44,7 @@ public class QuestionService {
 
         Question question = targetQuestion.get();
         question.setUpvotes(question.getUpvotes() + 1);
+
         questionRepository.save(question);
     }
 
@@ -60,7 +56,7 @@ public class QuestionService {
         return questions;
     }
 
-    public List<Question> getCategoryQuestions(int categoryId) {
+    public List<Question> getQuestionsFromCategory(int categoryId) {
         System.out.println("Getting category questions: " + categoryId);
 
         List<Question> questions = questionRepository.findQuestionsByCategoryId(categoryId);

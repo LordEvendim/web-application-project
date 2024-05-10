@@ -3,7 +3,6 @@ package com.uep.wap.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "answers")
@@ -33,6 +32,18 @@ public class Answer {
     @ManyToOne
     @JoinColumn(name = "parent_question_id")
     private Question parentQuestion;
+
+    public Answer() {
+    }
+
+    public Answer(String content, User creator, int upvotes, long createdAt, long lastEdited, Question parentQuestion) {
+        this.content = content;
+        this.creator = creator;
+        this.createdAt = createdAt;
+        this.lastEdited = lastEdited;
+        this.parentQuestion = parentQuestion;
+        this.upvotes = upvotes;
+    }
 
     public int getId() {
         return id;
@@ -87,18 +98,6 @@ public class Answer {
     }
 
     public void setUpvotes(int upvotes) {
-        this.upvotes = upvotes;
-    }
-
-    public Answer() {
-    }
-
-    public Answer(String content, User creator, int upvotes,  long createdAt, long lastEdited, Question parentQuestion) {
-        this.content = content;
-        this.creator = creator;
-        this.createdAt = createdAt;
-        this.lastEdited = lastEdited;
-        this.parentQuestion = parentQuestion;
         this.upvotes = upvotes;
     }
 }

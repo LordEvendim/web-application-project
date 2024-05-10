@@ -28,6 +28,19 @@ public class User {
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private List<Question> answers;
 
+    public User() {
+    }
+
+    public User(int id) {
+        this.id = id;
+    }
+
+    public User(String username, String email, String role) {
+        this.role = role;
+        this.username = username;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }
@@ -74,18 +87,5 @@ public class User {
 
     public void setAnswers(List<Question> answers) {
         this.answers = answers;
-    }
-
-    public User() {
-    }
-
-    public User(int id) {
-        this.id = id;
-    }
-
-    public User(String username, String email, String role) {
-        this.role = role;
-        this.username = username;
-        this.email = email;
     }
 }

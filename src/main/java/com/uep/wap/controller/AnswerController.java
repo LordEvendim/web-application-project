@@ -1,12 +1,8 @@
 package com.uep.wap.controller;
 
-import com.uep.wap.dto.AnswerDTO;
 import com.uep.wap.dto.NewAnswerDTO;
-import com.uep.wap.dto.QuestionDTO;
 import com.uep.wap.model.Answer;
-import com.uep.wap.model.Question;
 import com.uep.wap.service.AnswerService;
-import com.uep.wap.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

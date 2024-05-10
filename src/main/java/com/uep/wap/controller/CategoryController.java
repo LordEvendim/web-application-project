@@ -1,11 +1,8 @@
 package com.uep.wap.controller;
 
 import com.uep.wap.dto.CategoryDTO;
-import com.uep.wap.dto.TagDTO;
 import com.uep.wap.model.Category;
-import com.uep.wap.model.Tag;
 import com.uep.wap.service.CategoryService;
-import com.uep.wap.service.TagService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

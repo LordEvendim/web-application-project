@@ -1,7 +1,6 @@
 package com.uep.wap.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonIgnoreType;
 
 import javax.persistence.*;
 import java.util.List;
@@ -36,9 +35,7 @@ public class Question {
     private Category category;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "question_tags",
-            joinColumns = @JoinColumn(name = "question_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    @JoinTable(name = "question_tags", joinColumns = @JoinColumn(name = "question_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags;
 
     @JsonIgnoreProperties({"parentQuestion", "creator"})
@@ -46,6 +43,21 @@ public class Question {
     private List<Answer> answers;
 
     public Question() {
+    }
+
+    public Question(int id) {
+        this.id = id;
+    }
+
+    public Question(String content, User creator, long createdAt, long lastEdited, Category category, List<Tag> tags, int upvotes) {
+        this.content = content;
+        this.createdAt = createdAt;
+        this.lastEdited = lastEdited;
+        this.tags = tags;
+        this.upvotes = upvotes;
+
+        this.creator = creator;
+        this.category = category;
     }
 
     public int getId() {
@@ -118,21 +130,6 @@ public class Question {
 
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
-    }
-
-    public Question(String content, User creator, long createdAt, long lastEdited, Category category, List<Tag> tags, int upvotes) {
-        this.content = content;
-        this.createdAt = createdAt;
-        this.lastEdited = lastEdited;
-        this.tags = tags;
-        this.upvotes = upvotes;
-
-        this.creator = creator;
-        this.category = category;
-    }
-
-    public Question(int id) {
-        this.id = id;
     }
 }
 

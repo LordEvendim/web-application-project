@@ -1,7 +1,6 @@
 package com.uep.wap.repository;
 
 import com.uep.wap.dto.IUserStatisticsDTO;
-import com.uep.wap.dto.UserStatisticsDTO;
 import com.uep.wap.model.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -18,7 +17,7 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             "GROUP BY u.id\n" +
             "ORDER BY SUM(q.upvotes + a.upvotes) DESC\n" +
             "LIMIT 10", nativeQuery = true)
-    List<IUserStatisticsDTO> findTopUsersWithMostUpvotes();
+    List<IUserStatisticsDTO> findUsersWithMostUpvotes();
 
     @Query(value = "SELECT u.id as id, u.username as username, COALESCE(COUNT(a.id), 0) as value\n" +
             "FROM users u\n" +
@@ -26,5 +25,5 @@ public interface UserRepository extends CrudRepository<User, Integer> {
             "GROUP BY u.id\n" +
             "ORDER BY COUNT(a.id) DESC\n" +
             "LIMIT 10", nativeQuery = true)
-    List<IUserStatisticsDTO> findTopUsersWithMostAnswers();
+    List<IUserStatisticsDTO> findUsersWithMostAnswers();
 }

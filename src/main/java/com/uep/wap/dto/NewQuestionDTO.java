@@ -6,7 +6,7 @@ import com.uep.wap.model.User;
 
 import java.util.List;
 
-public class QuestionDTO {
+public class NewQuestionDTO {
 
     private String content;
 
@@ -18,10 +18,10 @@ public class QuestionDTO {
     private long lastEdited;
 
 
-    private User creator;
+    private int creatorId;
 
 
-    private Category category;
+    private int categoryId;
 
 
     private List<Tag> tags;
@@ -50,20 +50,20 @@ public class QuestionDTO {
         this.lastEdited = lastEdited;
     }
 
-    public User getCreator() {
-        return creator;
+    public int getCreatorId() {
+        return creatorId;
     }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
+    public void setCreatorId(int creatorId) {
+        this.creatorId = creatorId;
     }
 
-    public Category getCategory() {
-        return category;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 
     public List<Tag> getTags() {

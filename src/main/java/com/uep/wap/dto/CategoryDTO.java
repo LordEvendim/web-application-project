@@ -8,7 +8,6 @@ public class CategoryDTO {
 
     private String name;
 
-
     private List<Question> questions;
 
     public String getName() {

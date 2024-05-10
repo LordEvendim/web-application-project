@@ -1,5 +1,7 @@
 package com.uep.wap.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,16 +15,21 @@ public class Answer {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "upvotes")
+    private int upvotes;
+
     @Column(name = "created_at")
     private long createdAt;
 
     @Column(name = "last_edited")
     private long lastEdited;
 
+    @JsonIgnoreProperties({"questions", "answers"})
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private User creator;
 
+    @JsonIgnoreProperties("answers")
     @ManyToOne
     @JoinColumn(name = "parent_question_id")
     private Question parentQuestion;
@@ -75,15 +82,24 @@ public class Answer {
         this.parentQuestion = parentQuestion;
     }
 
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
+    }
+
     public Answer() {
     }
 
-    public Answer(String content, User creator, long createdAt, long lastEdited, Question parentQuestion) {
+    public Answer(String content, User creator, int upvotes,  long createdAt, long lastEdited, Question parentQuestion) {
         this.content = content;
         this.creator = creator;
         this.createdAt = createdAt;
         this.lastEdited = lastEdited;
         this.parentQuestion = parentQuestion;
+        this.upvotes = upvotes;
     }
 }
 

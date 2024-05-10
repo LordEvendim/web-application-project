@@ -1,5 +1,7 @@
 package com.uep.wap.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Category {
     @Column(name = "name")
     private String name;
 
+    @JsonIgnoreProperties({"category", "answers"})
     @OneToMany(mappedBy = "category")
     private List<Question> questions;
 
@@ -44,8 +47,7 @@ public class Category {
     public Category() {
     }
 
-    public Category(String name, List<Question> questions) {
-        this.name = name;
-        this.questions = questions;
+    public Category(int id) {
+        this.id = id;
     }
 }

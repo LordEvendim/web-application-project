@@ -1,5 +1,7 @@
 package com.uep.wap.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,9 +20,11 @@ public class User {
     @Column(name = "role")
     private String role;
 
+    @JsonIgnoreProperties("creator")
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private List<Question> questions;
 
+    @JsonIgnoreProperties("creator")
     @OneToMany(mappedBy = "creator", cascade = CascadeType.ALL)
     private List<Question> answers;
 
@@ -75,11 +79,13 @@ public class User {
     public User() {
     }
 
+    public User(int id) {
+        this.id = id;
+    }
+
     public User(String username, String email, String role) {
         this.role = role;
         this.username = username;
         this.email = email;
     }
 }
-
-

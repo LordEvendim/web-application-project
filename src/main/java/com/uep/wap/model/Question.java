@@ -1,5 +1,8 @@
 package com.uep.wap.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,16 +16,21 @@ public class Question {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "upvotes")
+    private int upvotes;
+
     @Column(name = "created_at")
     private long createdAt;
 
     @Column(name = "last_edited")
     private long lastEdited;
 
+    @JsonIgnoreProperties({"questions", "answers"})
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private User creator;
 
+    @JsonIgnoreProperties("questions")
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")
     private Category category;
@@ -32,6 +40,10 @@ public class Question {
             joinColumns = @JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id"))
     private List<Tag> tags;
+
+    @JsonIgnoreProperties({"parentQuestion", "creator"})
+    @OneToMany(mappedBy = "parentQuestion", cascade = CascadeType.ALL)
+    private List<Answer> answers;
 
     public Question() {
     }
@@ -92,13 +104,35 @@ public class Question {
         this.tags = tags;
     }
 
-    public Question(String content, User creator, long createdAt, long lastEdited, Category category, List<Tag> tags) {
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
+    }
+
+    public Question(String content, User creator, long createdAt, long lastEdited, Category category, List<Tag> tags, int upvotes) {
         this.content = content;
-        this.creator = creator;
         this.createdAt = createdAt;
         this.lastEdited = lastEdited;
-        this.category = category;
         this.tags = tags;
+        this.upvotes = upvotes;
+
+        this.creator = creator;
+        this.category = category;
+    }
+
+    public Question(int id) {
+        this.id = id;
     }
 }
 

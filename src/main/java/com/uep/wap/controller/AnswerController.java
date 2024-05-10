@@ -1,6 +1,7 @@
 package com.uep.wap.controller;
 
 import com.uep.wap.dto.AnswerDTO;
+import com.uep.wap.dto.NewAnswerDTO;
 import com.uep.wap.dto.QuestionDTO;
 import com.uep.wap.model.Answer;
 import com.uep.wap.model.Question;
@@ -24,9 +25,14 @@ public class AnswerController {
     }
 
     @PostMapping(path = "/")
-    public String addAnswer(@RequestBody AnswerDTO answerDTO) {
+    public String addAnswer(@RequestBody NewAnswerDTO answerDTO) {
         answerService.addAnswer(answerDTO);
 
         return "Answer added";
+    }
+
+    @GetMapping(path = "/user/{userId}")
+    public Iterable<Answer> getUserQuestions(@PathVariable int userId) {
+        return answerService.getUserAnswers(userId);
     }
 }

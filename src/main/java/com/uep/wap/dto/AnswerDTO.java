@@ -10,6 +10,7 @@ public class AnswerDTO {
 
     private long createdAt;
 
+    private int upvotes;
 
     private long lastEdited;
 
@@ -49,6 +50,14 @@ public class AnswerDTO {
 
     public void setCreator(User creator) {
         this.creator = creator;
+    }
+
+    public int getUpvotes() {
+        return upvotes;
+    }
+
+    public void setUpvotes(int upvotes) {
+        this.upvotes = upvotes;
     }
 
     public Question getParentQuestion() {

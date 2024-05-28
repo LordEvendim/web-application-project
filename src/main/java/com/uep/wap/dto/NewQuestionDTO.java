@@ -12,15 +12,11 @@ public class NewQuestionDTO {
 
     private long createdAt;
 
-
     private long lastEdited;
-
 
     private int creatorId;
 
-
     private int categoryId;
-
 
     private List<Tag> tags;
 

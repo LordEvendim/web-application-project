@@ -72,6 +72,12 @@ public class QuestionService {
         return questions;
     }
 
+    public Optional<Question> getQuestionById(int id) {
+        System.out.println("Getting question by id");
+
+        return questionRepository.findById(id);
+    }
+
     public Iterable<Question> getAllQuestions() {
         return questionRepository.findAll();
     }

@@ -5,6 +5,8 @@ import com.uep.wap.model.Question;
 import com.uep.wap.service.QuestionService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping(path = "/questions")
 public class QuestionController {
@@ -25,6 +27,11 @@ public class QuestionController {
         questionService.addQuestion(questionDTO);
 
         return "Question added";
+    }
+
+    @GetMapping(path = "/{questionId}")
+    public Optional<Question> getQuestionById(@PathVariable int questionId) {
+        return questionService.getQuestionById(questionId);
     }
 
     @GetMapping(path = "/user/{userId}")

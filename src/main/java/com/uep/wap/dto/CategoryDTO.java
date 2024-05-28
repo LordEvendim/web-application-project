@@ -6,6 +6,7 @@ import java.util.List;
 
 public class CategoryDTO {
 
+    private int id;
     private String name;
 
     private List<Question> questions;
@@ -24,5 +25,13 @@ public class CategoryDTO {
 
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

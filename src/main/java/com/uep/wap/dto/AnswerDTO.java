@@ -5,9 +5,7 @@ import com.uep.wap.model.User;
 
 public class AnswerDTO {
 
-
     private String content;
-
 
     private long createdAt;
 

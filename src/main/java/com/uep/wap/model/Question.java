@@ -30,7 +30,7 @@ public class Question {
     private User creator;
 
     @JsonIgnoreProperties("questions")
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
 

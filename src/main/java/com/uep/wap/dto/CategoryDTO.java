@@ -7,6 +7,7 @@ import java.util.List;
 public class CategoryDTO {
 
     private int id;
+
     private String name;
 
     private List<Question> questions;

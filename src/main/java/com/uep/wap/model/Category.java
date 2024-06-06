@@ -17,7 +17,7 @@ public class Category {
     private String name;
 
     @JsonIgnoreProperties({"category", "answers"})
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
     private List<Question> questions;
 
     public Category() {
